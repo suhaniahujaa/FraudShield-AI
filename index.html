@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FraudShield AI | Intelligent Fraud Detection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+<div id="authScreen" class="auth-screen">
+
+    <!-- LEFT: FRAUDSHIELD VISUAL -->
+    <div class="auth-illustration">
+        <div class="auth-brand">🛡 FRAUDSHIELD AI</div>
+
+        <h1>
+            Smarter Detection.<br>
+            <span>Stronger Protection.</span>
+        </h1>
+
+        <p>
+            Advanced AI-powered fraud detection
+            for secure and trusted transactions.
+        </p>
+
+        <div class="fraud-visual">
+            <div class="security-orbit"></div>
+
+            <div class="security-shield">
+                <span>✓</span>
+            </div>
+
+            <div class="floating-credit-card">
+                <div class="card-chip"></div>
+                <div class="card-contactless">)))</div>
+                <div class="card-number">•••• •••• •••• 4829</div>
+                <div class="card-footer">
+                    <span>SECURE PAYMENT</span>
+                    <span class="card-symbol">◉</span>
+                </div>
+            </div>
+
+            <div class="visual-caption">
+                <span class="visual-dot"></span>
+                AI FRAUD PROTECTION ACTIVE
+            </div>
+        </div>
+
+        <div class="auth-features">
+            <div>⚡ Real-Time Analysis</div>
+            <div>▥ Machine Learning Intelligence</div>
+            <div>🔒 Enterprise Grade Security</div>
+        </div>
+    </div>
+
+    <!-- RIGHT: LOGIN FORM -->
+    <div class="auth-form-panel">
+
+        <div class="auth-tabs">
+            <button type="button"
+                    onclick="switchAuth('login')"
+                    id="loginTab"
+                    class="selected">
+                Login
+            </button>
+
+            <button type="button"
+                    onclick="switchAuth('register')"
+                    id="registerTab">
+                Register
+            </button>
+        </div>
+
+        <h2 id="authTitle">Welcome Back!</h2>
+        <p id="authSubtitle">Sign in to access your dashboard.</p>
+
+        <form id="authForm">
+
+            <input
+                id="authName"
+                placeholder="Full Name"
+                style="display:none"
+            >
+
+            <input
+                id="authEmail"
+                type="email"
+                placeholder="Email Address"
+                required
+            >
+
+            <input
+                id="authPassword"
+                type="password"
+                placeholder="Password"
+                required
+            >
+
+            <div class="role-options">
+                <p>SELECT YOUR LOGIN</p>
+
+                <div class="role-buttons">
+
+                    <button type="button"
+                            class="role-option selected"
+                            data-role="NEW USER">
+                        <span>✦</span>
+                        <strong>User</strong>
+                    </button>
+
+                    <button type="button"
+                            class="role-option"
+                            data-role="DEVELOPER">
+                        <span>⌘</span>
+                        <strong>Developer</strong>
+                    </button>
+
+                    <button type="button"
+                            class="role-option"
+                            data-role="ADMIN">
+                        <span>⬡</span>
+                        <strong>Admin</strong>
+                    </button>
+
+                </div>
+
+                <select id="authRole" hidden>
+                    <option value="NEW USER" selected>New User</option>
+                    <option value="DEVELOPER">Developer</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+            </div>
+
+            <button type="submit"
+                    class="auth-submit"
+                    id="authSubmit">
+                Login →
+            </button>
+
+            <p id="authError" class="auth-error"></p>
+
+        </form>
+    </div>
+</div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" onclick="showPage('overview');return false;">
+        <div class="brand-mark"><span>F</span><i></i></div>
+        <div>
+          <strong>FRAUD<span>SHIELD</span></strong>
+          <small>INTELLIGENCE SYSTEM</small>
+        </div>
+      </a>
+
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="navigation">
+        <button class="nav-link active" data-page="overview" onclick="showPage('overview')">
+          <span class="nav-icon">◈</span> Overview
+        </button>
+        <button class="nav-link" data-page="scanner" onclick="showPage('scanner')">
+          <span class="nav-icon">⌕</span> Fraud Scanner <span class="nav-tag">AI</span>
+        </button>
+        <button class="nav-link" data-page="batch" onclick="showPage('batch')">
+          <span class="nav-icon">▤</span> Batch Intelligence
+        </button>
+        <button class="nav-link" data-page="history" onclick="showPage('history')">
+          <span class="nav-icon">◷</span> Transaction History
+        </button>
+        <div class="workspace-label second-label">ANALYTICS</div>
+        <button class="nav-link" data-page="performance" onclick="showPage('performance')">
+          <span class="nav-icon">⌁</span> Model Performance
+        </button>
+        <button class="nav-link" data-page="dataset" onclick="showPage('dataset')">
+          <span class="nav-icon">▦</span> Dataset Insights
+        </button>
+        <div class="workspace-label second-label">SYSTEM</div>
+        <button class="nav-link" data-page="settings" onclick="showPage('settings')">
+          <span class="nav-icon">⚙</span> Settings
+        </button>
+      </nav>
+
+      
+<div class="sidebar-bottom">
+
+    <!-- SYSTEM STATUS -->
+    <div class="system-card">
+        <div class="system-top">
+            <span class="live-dot"></span>
+            SYSTEM STATUS
+        </div>
+
+        <strong id="sideStatus">Connecting...</strong>
+        <small>Fraud detection engine</small>
+        <div class="system-line"><span></span></div>
+    </div>
+
+    <!-- SINGLE USER PROFILE -->
+    <div class="user-profile-card" id="userProfileCard">
+
+        <button type="button" class="profile-toggle" id="profileToggle">
+
+            <div class="profile-avatar" id="userAvatar">U</div>
+
+            <div class="profile-main-info">
+                <strong id="profileName">Loading User...</strong>
+                <span id="profileRole">NEW USER</span>
+            </div>
+
+            <span class="profile-arrow">⌄</span>
+        </button>
+
+        <div class="profile-dropdown">
+
+            <div class="profile-dropdown-heading">
+                <div class="profile-avatar large" id="dropdownAvatar">U</div>
+
+                <div>
+                    <strong id="dropdownName">User</strong>
+                    <p id="dropdownEmail">Loading email...</p>
+                </div>
+            </div>
+
+            <div class="profile-detail">
+                <span>ACCOUNT ROLE</span>
+                <strong id="dropdownRole">NEW USER</strong>
+            </div>
+
+            <div class="profile-detail">
+                <span>ACCOUNT STATUS</span>
+                <strong>● Active</strong>
+            </div>
+
+            <button type="button" class="profile-logout" id="profileLogout">
+                <span>↪</span>
+                Sign Out
+            </button>
+
+        </div>
+    </div>
+
+</div>
+</aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="currentSection">Overview</strong></div>
+        <div class="top-actions">
+          <div class="secure-label"><span class="live-dot"></span> LIVE MONITORING</div>
+          <button class="icon-button" title="Notifications">♧<i></i></button>
+    <div class="top-avatar" id="topAvatar">U</div>
+        </div>
+      </header>
+
+      <div class="page-wrap">
+
+        <!-- OVERVIEW -->
+        <section class="page active" id="page-overview">
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow"><span></span> FRAUD INTELLIGENCE PLATFORM</div>
+            <h1>Good afternoon, <span id="dashboardUserName">User.</span></h1>
+              <p>Your transaction security overview is ready.</p>
+            </div>
+            <button class="outline-button" onclick="refreshDashboard()">↻ &nbsp; Refresh data</button>
+          </div>
+
+          <div class="hero-panel">
+            <div class="hero-content">
+              <div class="hero-pill"><span class="live-dot"></span> AI ENGINE ACTIVE</div>
+              <h2>Smarter detection.<br><span>Stronger protection.</span></h2>
+              <p>Monitor transaction patterns, detect suspicious activity and turn complex data into actionable intelligence.</p>
+              <button class="primary-button" onclick="showPage('scanner')">Launch fraud scanner <span>↗</span></button>
+              <div class="hero-foot"><span>✦</span> Powered by machine learning intelligence</div>
+            </div>
+            <div class="hero-visual">
+              <div class="orbit orbit-a"></div>
+              <div class="orbit orbit-b"></div>
+              <div class="orbit orbit-c"></div>
+              <div class="shield-glow"></div>
+              <div class="shield-symbol">
+                <svg viewBox="0 0 120 140" fill="none">
+                  <path d="M60 7L106 25V61C106 94 87 119 60 132C33 119 14 94 14 61V25L60 7Z" stroke="url(#shieldGrad)" stroke-width="5"/>
+                  <path d="M39 69L53 83L83 52" stroke="#67F5D0" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                  <defs><linearGradient id="shieldGrad" x1="14" y1="7" x2="106" y2="132"><stop stop-color="#65F5DB"/><stop offset="1" stop-color="#5B8EFF"/></linearGradient></defs>
+                </svg>
+              </div>
+              <div class="float-chip chip-one"><span class="chip-dot cyan"></span> AI protected</div>
+              <div class="float-chip chip-two"><span class="chip-dot purple"></span> Real-time analysis</div>
+              <div class="float-chip chip-three">✦ Secure intelligence</div>
+            </div>
+          </div>
+
+          <div class="section-heading"><div><h3>Platform overview</h3><p>Key indicators from your fraud detection model</p></div><span class="muted-chip">MODEL METRICS</span></div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-top"><span>Total transactions</span><i class="stat-icon blue">▤</i></div>
+              <div class="stat-value" id="totalTransactions">284,807</div>
+              <div class="stat-bottom"><span class="stat-caption">Dataset records</span><span class="trend blue-text">DATASET</span></div>
+              <div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-top"><span>Fraud cases</span><i class="stat-icon pink">⌁</i></div>
+              <div class="stat-value" id="fraudCases">492</div>
+              <div class="stat-bottom"><span class="stat-caption">Known fraudulent records</span><span class="trend pink-text">0.17%</span></div>
+              <div class="mini-bars pink-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-top"><span>Model precision</span><i class="stat-icon purple">◎</i></div>
+              <div class="stat-value" id="precisionValue">74.11%</div>
+              <div class="stat-bottom"><span class="stat-caption">Random Forest</span><span class="trend purple-text">PRECISION</span></div>
+              <div class="mini-bars purple-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-top"><span>Fraud recall</span><i class="stat-icon green">⌖</i></div>
+              <div class="stat-value" id="recallValue">84.69%</div>
+              <div class="stat-bottom"><span class="stat-caption">Fraud detection rate</span><span class="trend green-text">RECALL</span></div>
+              <div class="mini-bars green-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+
+          <div class="analytics-grid">
+            <div class="glass-card chart-card">
+              <div class="card-heading"><div><h3>Transaction distribution</h3><p>Dataset class distribution</p></div><span class="live-chip">● DATASET</span></div>
+              <div class="distribution-content">
+                <div class="donut-wrap"><div class="donut" id="classDonut"><div><strong>99.83%</strong><small>GENUINE</small></div></div></div>
+                <div class="legend-list">
+                  <div><span class="legend-dot dot-cyan"></span><div><strong>Genuine transactions</strong><small>284,315 records</small></div><b>99.83%</b></div>
+                  <div><span class="legend-dot dot-pink"></span><div><strong>Fraudulent transactions</strong><small>492 records</small></div><b>0.17%</b></div>
+                  <div class="legend-note">Highly imbalanced dataset — precision-recall metrics are especially important.</div>
+                </div>
+              </div>
+            </div>
+            <div class="glass-card model-card">
+              <div class="card-heading"><div><h3>Model intelligence</h3><p>Active prediction engine</p></div><span class="model-badge">ACTIVE</span></div>
+              <div class="model-identity"><div class="model-emblem">✧</div><div><strong id="modelName">Random Forest</strong><small>Supervised machine learning</small></div></div>
+              <div class="model-row"><span>PR-AUC</span><strong id="prAuc">86.37%</strong></div>
+              <div class="model-row"><span>ROC-AUC</span><strong id="rocAuc">97.36%</strong></div>
+              <div class="model-row"><span>F1 score</span><strong id="f1Value">79.05%</strong></div>
+              <button class="text-button" onclick="showPage('performance')">Explore model performance ↗</button>
+            </div>
+          </div>
+
+          <div class="bottom-banner">
+            <div class="banner-icon">✦</div>
+            <div><strong>Ready to investigate a transaction?</strong><p>Run an AI-powered risk assessment using your trained fraud detection model.</p></div>
+            <button class="outline-button" onclick="showPage('scanner')">Open scanner ↗</button>
+          </div>
+        </section>
+
+        <!-- SCANNER -->
+        <section class="page" id="page-scanner">
+          <div class="page-heading"><div><div class="eyebrow"><span></span> AI-POWERED ANALYSIS</div><h1>Fraud <span>Scanner.</span></h1><p>Evaluate a transaction using your trained machine learning model.</p></div><span class="muted-chip">MODEL CONNECTED</span></div>
+          <div class="scanner-layout">
+            <div class="glass-card scanner-form">
+              <div class="card-heading"><div><h3>Transaction details</h3><p>Enter the transaction feature values</p></div><span class="step-badge">01 / INPUT</span></div>
+              <div class="form-grid">
+                <label>Transaction amount <span>AMOUNT</span><div class="input-wrap"><b>₹</b><input id="amount" type="number" min="0" step="0.01" placeholder="Enter amount"></div></label>
+                <label>Transaction time <span>SECONDS</span><div class="input-wrap"><b>◷</b><input id="time" type="number" min="0" placeholder="Enter time"></div></label>
+              </div>
+              <div class="feature-heading"><div><strong>Advanced transaction features</strong><small>V1–V28 are anonymized PCA features from the original dataset.</small></div><button type="button" class="collapse-button" onclick="toggleFeatures()">EDIT FEATURES⌄</button></div>
+              <div class="pca-grid" id="pcaGrid"></div>
+              <div class="input-note">ⓘ For meaningful predictions, use the actual transformed feature values. Zero values are placeholders, not real transaction evidence.</div>
+              <button class="primary-button full-button" id="analyzeButton" onclick="analyzeTransaction()">✦ &nbsp; Analyze transaction <span>↗</span></button>
+              <div id="scannerError" class="error-message"></div>
+            </div>
+            <div class="glass-card result-card">
+              <div class="card-heading"><div><h3>Analysis result</h3><p>AI prediction output</p></div><span class="step-badge">02 / RESULT</span></div>
+              <div class="result-empty" id="resultEmpty"><div class="empty-orb">⌕</div><strong>Awaiting transaction</strong><p>Submit transaction details to generate an AI-powered risk assessment.</p></div>
+              <div class="result-output hidden" id="resultOutput">
+                <div class="result-status" id="resultStatus">GENUINE TRANSACTION</div>
+                <div class="risk-number" id="riskNumber">0.00<small>%</small></div>
+                <div class="risk-label">PREDICTED FRAUD PROBABILITY</div>
+                <div class="risk-track"><span id="riskTrack"></span></div>
+                <div class="result-meta"><span>Risk classification</span><strong id="riskLevel">LOW</strong></div>
+                <div class="result-meta"><span>Model decision</span><strong id="modelDecision">GENUINE</strong></div>
+                <div class="result-explanation" id="resultExplanation">Prediction generated by your trained model.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- BATCH -->
+        <section class="page" id="page-batch">
+          <div class="page-heading"><div><div class="eyebrow"><span></span> BULK TRANSACTION ANALYSIS</div><h1>Batch <span>Intelligence.</span></h1><p>Upload a transaction CSV and analyze multiple records at once.</p></div></div>
+          <div class="glass-card upload-card">
+            <div class="upload-symbol">⇧</div><h3>Upload transaction dataset</h3><p>Choose a CSV containing Time, Amount and V1–V28 columns.</p>
+            <label class="upload-button" for="csvFile">Choose CSV file</label><input type="file" id="csvFile" accept=".csv" hidden>
+            <div class="file-name" id="fileName">No file selected</div>
+            <div class="input-note">Maximum 10,000 rows per upload. The Class column is optional and is not used for predictions.</div>
+            <button class="primary-button" id="batchButton" onclick="runBatch()">Analyze batch ↗</button>
+            <div class="error-message" id="batchError"></div>
+          </div>
+          <div class="stats-grid batch-stats hidden" id="batchStats">
+            <div class="stat-card"><div class="stat-top">Rows analyzed</div><div class="stat-value" id="batchTotal">0</div></div>
+            <div class="stat-card"><div class="stat-top">Fraud flagged</div><div class="stat-value pink-text" id="batchFraud">0</div></div>
+            <div class="stat-card"><div class="stat-top">Genuine</div><div class="stat-value green-text" id="batchGenuine">0</div></div>
+            <div class="stat-card"><div class="stat-top">Fraud share</div><div class="stat-value" id="batchRate">0%</div></div>
+          </div>
+          <div class="glass-card table-card hidden" id="batchTableCard"><div class="card-heading"><div><h3>Batch results</h3><p>Predictions from your trained model</p></div></div><div class="table-scroll"><table><thead><tr><th>ROW</th><th>PREDICTION</th><th>FRAUD PROBABILITY</th><th>RISK LEVEL</th></tr></thead><tbody id="batchRows"></tbody></table></div></div>
+        </section>
+
+        <!-- HISTORY -->
+        <section class="page" id="page-history">
+          <div class="page-heading"><div><div class="eyebrow"><span></span> ACTIVITY LOG</div><h1>Transaction <span>History.</span></h1><p>Your recent individual transaction assessments on this browser.</p></div><button class="outline-button" onclick="clearHistory()">Clear history</button></div>
+          <div class="glass-card table-card"><div class="card-heading"><div><h3>Recent analyses</h3><p>Locally saved scanner results</p></div><span class="muted-chip" id="historyCount">0 RECORDS</span></div><div class="table-scroll"><table><thead><tr><th>DATE & TIME</th><th>AMOUNT</th><th>DECISION</th><th>PROBABILITY</th><th>RISK</th></tr></thead><tbody id="historyRows"></tbody></table></div></div>
+          <p class="footnote">History is stored in your browser only. It is not uploaded to a database.</p>
+        </section>
+
+        <!-- PERFORMANCE -->
+        <section class="page" id="page-performance">
+          <div class="page-heading"><div><div class="eyebrow"><span></span> MACHINE LEARNING METRICS</div><h1>Model <span>Performance.</span></h1><p>Evaluation metrics from your saved training results.</p></div><span class="muted-chip">TRAINED MODEL</span></div>
+          <div class="stats-grid">
+            <div class="stat-card"><div class="stat-top">PR-AUC</div><div class="stat-value" id="perfPR">86.37%</div><div class="stat-caption">Precision-recall area</div></div>
+            <div class="stat-card"><div class="stat-top">ROC-AUC</div><div class="stat-value" id="perfROC">97.36%</div><div class="stat-caption">ROC curve area</div></div>
+            <div class="stat-card"><div class="stat-top">Precision</div><div class="stat-value" id="perfPrecision">74.11%</div><div class="stat-caption">Positive prediction quality</div></div>
+            <div class="stat-card"><div class="stat-top">Recall</div><div class="stat-value" id="perfRecall">84.69%</div><div class="stat-caption">Fraud cases detected</div></div>
+          </div>
+          <div class="glass-card chart-card"><div class="card-heading"><div><h3>Model comparison</h3><p>PR-AUC comparison from training</p></div></div><div class="bar-chart" id="modelBars"></div></div>
+          <div class="glass-card info-card"><h3>Understanding the metrics</h3><div class="metric-explain"><div><b>Precision</b><p>Of all transactions predicted as fraud, how many were actually fraud.</p></div><div><b>Recall</b><p>Of all actual fraud transactions, how many the model detected.</p></div><div><b>F1 score</b><p>A balance between precision and recall.</p></div><div><b>PR-AUC</b><p>Measures precision-recall performance, useful for imbalanced datasets.</p></div></div></div>
+        </section>
+
+        <!-- DATASET -->
+        <section class="page" id="page-dataset">
+          <div class="page-heading"><div><div class="eyebrow"><span></span> DATA EXPLORATION</div><h1>Dataset <span>Insights.</span></h1><p>Explore the structure and class imbalance of the credit card dataset.</p></div></div>
+          <div class="stats-grid">
+            <div class="stat-card"><div class="stat-top">Total records</div><div class="stat-value">284,807</div><div class="stat-caption">Transactions</div></div>
+            <div class="stat-card"><div class="stat-top">Genuine records</div><div class="stat-value green-text">284,315</div><div class="stat-caption">Class 0</div></div>
+            <div class="stat-card"><div class="stat-top">Fraud records</div><div class="stat-value pink-text">492</div><div class="stat-caption">Class 1</div></div>
+            <div class="stat-card"><div class="stat-top">Input features</div><div class="stat-value">30</div><div class="stat-caption">Time, Amount, V1–V28</div></div>
+          </div>
+          <div class="analytics-grid">
+            <div class="glass-card chart-card"><div class="card-heading"><div><h3>Class distribution</h3><p>Genuine vs fraudulent transactions</p></div></div><div class="dataset-bars"><div><span>Genuine</span><div class="horizontal-track"><i style="width:99.83%"></i></div><b>284,315</b></div><div><span>Fraud</span><div class="horizontal-track fraud-track"><i style="width:0.17%;min-width:4px"></i></div><b>492</b></div></div><div class="legend-note">Fraud accounts for approximately 0.17% of this dataset. This imbalance is why the training process uses SMOTE.</div></div>
+            <div class="glass-card chart-card"><div class="card-heading"><div><h3>Feature overview</h3><p>What the dataset contains</p></div></div><div class="feature-list"><div><b>Time</b><span>Seconds elapsed from the first transaction</span></div><div><b>Amount</b><span>Transaction amount</span></div><div><b>V1–V28</b><span>Anonymized PCA-transformed features</span></div><div><b>Class</b><span>0 = Genuine · 1 = Fraud</span></div></div></div>
+          </div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section class="page" id="page-settings">
+          <div class="page-heading"><div><div class="eyebrow"><span></span> PLATFORM CONFIGURATION</div><h1>System <span>Settings.</span></h1><p>Application and model connection information.</p></div></div>
+          <div class="glass-card settings-card">
+            <h3>Backend connection</h3><p>FraudShield API connection status</p><div class="setting-row"><span>API endpoint</span><strong>/api</strong></div><div class="setting-row"><span>Connection status</span><strong id="settingsStatus">Checking...</strong></div><div class="setting-row"><span>Active model</span><strong id="settingsModel">Loading...</strong></div><div class="setting-row"><span>Feature count</span><strong id="settingsFeatures">30</strong></div>
+          </div>
+          <div class="glass-card settings-card"><h3>About FraudShield AI</h3><p>An intelligent credit card fraud detection interface powered by a trained machine learning model.</p><div class="setting-row"><span>Frontend</span><strong>HTML · CSS · JavaScript</strong></div><div class="setting-row"><span>Backend</span><strong>Python · FastAPI</strong></div><div class="setting-row"><span>Machine learning</span><strong>Scikit-learn</strong></div><div class="setting-row"><span>Model artifact</span><strong>fraud_model.pkl</strong></div></div>
+        </section>
+
+        <footer class="footer"><span>© 2026 FRAUDSHIELD AI</span><span>BUILT FOR INTELLIGENT TRANSACTION SECURITY <b>✦</b></span></footer>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="/script.js"></script>
+</body>
+</html>
